@@ -1,0 +1,14 @@
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0 10px;
+}
+
+nav a:hover{
+    color: lightgrey;
+}
+
+.activeLink{
+    text-decoration: underline;
+}

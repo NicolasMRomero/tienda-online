@@ -1,10 +1,28 @@
-import React from 'react'
-import { Card, Button } from 'react-bootstrap'
+import {useState, useContext} from 'react'
+import { Card, Button, NavLink } from 'react-bootstrap'
 import { useHistory } from 'react-router'
+import { ItemCount } from '../ItemCount/ItemCount'
+import { CartContext } from '../../context/CartContext'
 
-export const ItemDetail = ({id, name, description, img, price, category}) => {
+export const ItemDetail = ({id, name, description, img, price, category, stock}) => {
 
     const {goBack} = useHistory()
+
+    const {addToCart, isInCart} = useContext(CartContext)
+
+    const [quantity, setQuantity] = useState(0)
+
+    const handleAdd = () => {
+        const newItem = {
+            id,
+            name, 
+            price, 
+            category, 
+            quantity 
+        }
+
+        addToCart(newItem)
+    }
 
     return (
         <div className="container">  
@@ -19,7 +37,22 @@ export const ItemDetail = ({id, name, description, img, price, category}) => {
                         <Card.Title>{name}</Card.Title>
                         <Card.Text>{description}</Card.Text>
                         <Card.Text>$ {price}</Card.Text>
-                        <Button variant="primary">COMPRAR</Button>
+
+                        { isInCart(id) 
+                        ? <NavLink to="/cart" className="btn btn-success">Finalizar mi compra</NavLink> 
+                        :<>
+
+                        <ItemCount quantity={quantity} modify={setQuantity} max={stock}/>
+                        <Button 
+                        variant="primary"
+                        onClick={handleAdd}
+                        >
+                            COMPRAR
+                        </Button>
+                        </>
+
+                    }
+                        
                     </Card.Body>
 
                     <Button 

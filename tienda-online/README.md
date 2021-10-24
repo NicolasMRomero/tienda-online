@@ -1,6 +1,6 @@
 ![image](https://github.com/NicolasMRomero/tienda-online/blob/master/tienda-online/Animation.gif)
 Explicación
-https://github.com/NicolasMRomero/tienda-online/blob/master/tienda-online/Animation.gif
+https://github.com/NicolasMRomero/tienda-online/blob/master/tienda-online/Animation.gifgi
 Esta URL de enlace es la URL de enlace que se muestra en github después de cargar la imagen gif.
 
 # Getting Started with Create React App

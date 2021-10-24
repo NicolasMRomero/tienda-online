@@ -9,11 +9,18 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom'
+import { CartProvider } from './context/CartContext';
+import { CartPage } from './components/CartPage/CartPage';
 
 function App() {
+
   return (
     
     <div className="App">
+      
+
+      <CartProvider>
+
       <BrowserRouter>
       <NavBar/>
 
@@ -35,7 +42,7 @@ function App() {
         </Route>
 
         <Route exact path="/cart">
-        <h1>Pagina de carrito</h1>
+          <CartPage/>
         </Route>
 
         <Route path="*">
@@ -44,6 +51,7 @@ function App() {
       </Switch>
       
       </BrowserRouter>
+      </CartProvider>
     </div>
   );
 }

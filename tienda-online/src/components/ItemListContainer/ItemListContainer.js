@@ -1,39 +1,45 @@
-import React, {useEffect, useState} from "react"
+import { useEffect, useState, useContext } from "react"
 import { useParams } from "react-router-dom"
-import { pedirProductos } from "../../helpers/pedirProductos.js"
+import { UIContext } from "../../context/UIContext.js"
+import { getFirestore } from "../../firebase/config.js"
+import { Loader } from "../Loader/Loader.js"
 import { ItemList } from "./ItemList.js"
 
-export const ItemListContainer = ({greeting}) => {
+export const ItemListContainer = () => {
 
     const [item, setItems] = useState([])
-    const [loading, setLoading] = useState(false)
+
+    const {loading, setLoading} = useContext(UIContext)
 
     const {categoryId} =  useParams()
 
     useEffect(() => {
-        setLoading(true);
-        pedirProductos()
-            .then((res) => {
+        setLoading(true)
 
-                if (categoryId) {
-                    setItems( res.filter( prod => prod.category === categoryId ))
-                } else (
-                    setItems(res) 
-                )
+        const db = getFirestore()
+        const productsList = categoryId 
+        ? db.collection('productos-tienda-online').where('category','==', categoryId) 
+        : db.collection('productos-tienda-online')
 
+            productsList.get()
+            .then((response) => {
+                const newItems = response.docs.map((doc) => {
+                    return { id: doc.id, ...doc.data()   }
+                })
+                
+                setItems(newItems)
             })
-            .catch((err) => console.log(err))
-            .finally(() => {
-                setLoading(false)
-            })
-    }, [categoryId])
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false))
+
+    }, [categoryId, setLoading])
 
     return (
         <section className="container my-5">
             <h1>Listado de productos</h1>
             <hr/>
             {loading 
-            ? <h3>Cargando...</h3> 
+            ? <Loader/> 
             : <ItemList item={item}/>
             }
         </section>

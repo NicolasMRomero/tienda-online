@@ -11,12 +11,12 @@ export const NavBar = () => {
                 <Container>
                     <Nav className="me-auto">
                     <NavLink exact to="/"> <Navbar.Brand>Tienda online</Navbar.Brand></NavLink>
-                        <NavLink activeClassName="activeLink" exact to="/">Inicio</NavLink>
-                        <NavLink activeClassName="activeLink" exact to="/productos/Alimentos">Alimentos</NavLink>
-                        <NavLink activeClassName="activeLink" exact to="/productos/Bazar">Bazar</NavLink>
-                        <NavLink activeClassName="activeLink" exact to="/productos/Textil">Textil</NavLink>
-                        <NavLink activeClassName="activeLink" exact to="/productos/Electro">Electro</NavLink>
-                        <NavLink activeClassName="activeLink" exact to="/contacto">Contacto</NavLink>
+                        <NavLink activeClassName="activeLink" exact to="/">Home</NavLink>
+                        <NavLink activeClassName="activeLink" exact to="/productos/Food">Food</NavLink>
+                        <NavLink activeClassName="activeLink" exact to="/productos/Bazaar">Bazaar</NavLink>
+                        <NavLink activeClassName="activeLink" exact to="/productos/Textile">Textile</NavLink>
+                        <NavLink activeClassName="activeLink" exact to="/productos/Tools">Tools</NavLink>
+                        <NavLink activeClassName="activeLink" exact to="/contact">Contact</NavLink>
                         <NavLink activeClassName="activeLink" exact to="/cart"><CartWidget/></NavLink>
                     </Nav>
                 </Container>

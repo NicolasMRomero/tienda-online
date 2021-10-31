@@ -2,14 +2,13 @@ import { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext()
 
-const init = JSON.parse(localStorage.getItem('carrito')) || []
+const init = JSON.parse(localStorage.getItem('cart')) || []
 
 export const CartProvider = ( {children }) => {
 
+    const [cart, setCart] = useState(init)
 
-    const [cart, setCart] = useState ([init])
-
-    const addToCart =  (item) => {
+    const addToCart = (item) => {
         setCart( [ ...cart, item])
       }
     
@@ -23,7 +22,8 @@ export const CartProvider = ( {children }) => {
       }
 
       const calculateTotal = () =>{
-          return cart.reduce((acc, prod) => acc +prod.quantity * prod.price, )
+          return cart.reduce((acc, prod) => acc + prod.quantity * prod.price, 0)
+
       }
     
       const isInCart = (itemId) => {

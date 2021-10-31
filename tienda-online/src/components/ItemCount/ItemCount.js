@@ -18,7 +18,7 @@ export const ItemCount = ( {quantity, modify, max}) => {
 
             <button
             onClick={handlerSubtract}
-            className="btn btn-primary px-4"
+            className={`btn px-4 ${quantity === 0 ?  "btn-secondary turned-off" : "btn-primary"}`}
             >
                 -
             </button>
@@ -31,7 +31,7 @@ export const ItemCount = ( {quantity, modify, max}) => {
 
             <button
             onClick={handlerAdd}
-            className="btn btn-primary px-4"
+            className={`btn px-4 ${quantity === max ?  "btn-secondary turned-off" : "btn-primary"}`}
             >
                 +
             </button>

@@ -4,12 +4,19 @@ import { useContext } from 'react'
 
 export const CartWidget = () => {
 
-    const { calculateQuantity } = useContext(CartContext)
+    const { calculateQuantity, cart } = useContext(CartContext)
 
     return (
-        <div>
-            <FaShoppingCart className="widget"/>
-            <span>{calculateQuantity()}</span>
+        <div style={{
+            display: calculateQuantity() === 0 ? "none" : "block"
+        }}>
+            <FaShoppingCart size={22} className="widget"/>
+            {
+                cart.length === 0
+                ? <span></span>
+                :
+            <span> {calculateQuantity()}</span>
+            }
         </div>
     )
 }

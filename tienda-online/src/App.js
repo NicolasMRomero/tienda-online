@@ -11,47 +11,47 @@ import {
 } from 'react-router-dom'
 import { CartProvider } from './context/CartContext';
 import { CartPage } from './components/CartPage/CartPage';
+import { UIProvider } from './context/UIContext'
 
 function App() {
 
   return (
     
     <div className="App">
-      
+      <UIProvider>
+        <CartProvider>
+          <BrowserRouter>
+            <NavBar/>
 
-      <CartProvider>
+            <Switch>
+              <Route exact path="/">
+                <ItemListContainer/>
+              </Route>
 
-      <BrowserRouter>
-      <NavBar/>
+              <Route exact path="/productos/:categoryId">
+                <ItemListContainer/>
+              </Route>
 
-      <Switch>
-        <Route exact path="/">
-          <ItemListContainer/>
-        </Route>
+              <Route exact path="/detalle/:itemId">
+                <ItemDetailContainer/>
+              </Route>
 
-        <Route exact path="/productos/:categoryId">
-          <ItemListContainer/>
-        </Route>
+              <Route exact path="/contacto">
+                <h1>Pagina de contacto</h1>
+              </Route>
 
-        <Route exact path="/detalle/:itemId">
-          <ItemDetailContainer/>
-        </Route>
+              <Route exact path="/cart">
+                <CartPage/>
+              </Route>
 
-        <Route exact path="/contacto">
-           <h1>Pagina de contacto</h1>
-        </Route>
-
-        <Route exact path="/cart">
-          <CartPage/>
-        </Route>
-
-        <Route path="*">
-          <Redirect to="/"/>
-        </Route>
-      </Switch>
-      
-      </BrowserRouter>
-      </CartProvider>
+              <Route path="*">
+                <Redirect to="/"/>
+              </Route>
+            </Switch>
+          
+          </BrowserRouter>
+        </CartProvider>
+      </UIProvider>
     </div>
   );
 }

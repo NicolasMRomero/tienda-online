@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router'
 import { ItemDetail } from './ItemDetail'
-import { Loader } from "../Loader/Loader.js"
+import Animation from "../Animation/Animation"
 import { UIContext } from '../../context/UIContext'
 import { getFirestore } from '../../firebase/config'
 
@@ -41,7 +41,7 @@ export const ItemDetailContainer = () => {
             {
                 loading  
                 ? 
-                <Loader/> 
+                <Animation/> 
                 : <ItemDetail {...item}/>
             }
         </section>

@@ -13,6 +13,7 @@ import { CartProvider } from './context/CartContext';
 import { UIProvider } from './context/UIContext'
 import { CartPage } from './components/CartPage/CartPage';
 import { Checkout } from './components/Checkout/Checkout';
+import { Contact } from './components/Contact/Contact';
 import "bootswatch/dist/darkly/bootstrap.min.css";
 
 
@@ -41,8 +42,8 @@ function App() {
                 <ItemDetailContainer/>
               </Route>
 
-              <Route exact path="/contacto">
-                <h1>Pagina de contacto</h1>
+              <Route exact path="/contact">
+                <Contact/>
               </Route>
 
               <Route exact path="/cart">

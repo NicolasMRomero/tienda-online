@@ -1,10 +1,10 @@
 import { useContext, useState } from "react"
 import { CartContext } from "../../context/CartContext"
-import { Redirect } from 'react-router-dom'
 import { UIContext } from "../../context/UIContext"
-import { Loader } from "../Loader/Loader"
+import Animation from "../Animation/Animation"
 import { generateOrder } from '../../firebase/generateOrder'
 import Swal from "sweetalert2"
+import EmptyCart from "../EmptyCart/EmptyCart"
 
 export const Checkout = () => {
 
@@ -30,8 +30,12 @@ export const Checkout = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        if (values.name.length < 3){
-            alert("nombre invalido")
+        if ((values.name.length < 3) || (values.email.length < 3) || (values.last_name.length < 3)){
+            Swal.fire({
+                icon:  'error',
+                title: 'Field required',
+                text: 'Please, complete this field'
+            })
             return
         }
 
@@ -63,67 +67,75 @@ export const Checkout = () => {
 
     return (
         <>
-        {cart.length === 0 && <Redirect to='/'/>}
-        {loading && <Loader/>}
+        {loading && <Animation/>}
 
-        <div>
-            <h2>Checkout</h2>
-            <hr/>
-            <div className="container my-5">
-                <form 
-                onSubmit={handleSubmit}
-                >
-                    <h2>Form</h2>
-                    <input
-                        className="form-control my-2"
-                        type="text"
-                        placeholder="Name"
-                        name="name"
-                        value={values.name}
-                        onChange={handleInputChange}
-                        />
-                    {values.name.length === 0 && <small>This field is required</small>}
-
-                    <input
-                        className="form-control my-2"
-                        type="text"
-                        placeholder="Last name"
-                        name="last_name"
-                        value={values.last_name}
-                        onChange={handleInputChange}
-                        />
-                    {values.last_name.length === 0 && <small>This field is required</small>}
-
-                    <input
-                        className="form-control my-2"
-                        type="email"
-                        placeholder="Email"
-                        name="email"
-                        value={values.email}
-                        onChange={handleInputChange}
-                        />
-                    {values.email.length === 0 && <small>This field is required</small>}
-
-                    <input
-                        className="form-control my-2"
-                        type="tel"
-                        placeholder="Phone"
-                        name="phone"
-                        value={values.phone}
-                        onChange={handleInputChange}
-                        />
-                    {values.phone.length === 0 && <small>This field is required</small>}
-                    <br></br>
-                    <button 
-                    className="btn btn-success my-4" 
-                    type="submit" 
-                    disabled={loading}
+        {
+            (cart.length === 0)
+            ?<EmptyCart/>
+            :
+            <div>
+                <h2>Checkout</h2>
+                <hr/>
+                <div className="container my-5">
+                    <form 
+                    onSubmit={handleSubmit}
+                    style={{ width: '35rem', margin:'auto' }}
                     >
-                        Finish
-                    </button>
-                </form>
+                        <h2>Billing Details</h2>
+                        <input
+                            className="form-control my-2"
+                            type="text"
+                            placeholder="Name"
+                            name="name"
+                            value={values.name}
+                            onChange={handleInputChange}
+                            />
+                        {values.name.length === 0 && <small>This field is required</small>}
+
+                        <input
+                            className="form-control my-2"
+                            type="text"
+                            placeholder="Last name"
+                            name="last_name"
+                            value={values.last_name}
+                            onChange={handleInputChange}
+                            />
+                        {values.last_name.length === 0 && <small>This field is required</small>}
+
+                        <input
+                            className="form-control my-2"
+                            type="email"
+                            placeholder="Email"
+                            name="email"
+                            value={values.email}
+                            onChange={handleInputChange}
+                            />
+                        {values.email.length === 0 && <small>This field is required</small>}
+
+                        <input
+                            className="form-control my-2"
+                            type="tel"
+                            placeholder="Phone"
+                            name="phone"
+                            value={values.phone}
+                            onChange={handleInputChange}
+                            />
+                        {values.phone.length === 0 && <small>This field is required</small>}
+                        <br></br>
+                        <button 
+                        className="btn btn-success my-4" 
+                        type="submit" 
+                        disabled={loading}
+                        >
+                            Finish
+                        </button>
+                    </form>
+                </div>
             </div>
-        </div>
+        }
+
+
+
         </>
     )
 }

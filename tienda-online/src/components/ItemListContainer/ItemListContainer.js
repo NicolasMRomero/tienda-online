@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react"
 import { useParams } from "react-router-dom"
 import { UIContext } from "../../context/UIContext.js"
 import { getFirestore } from "../../firebase/config.js"
-import { Loader } from "../Loader/Loader.js"
+import Animation from "../Animation/Animation"
 import { ItemList } from "./ItemList.js"
 
 export const ItemListContainer = () => {
@@ -39,7 +39,7 @@ export const ItemListContainer = () => {
             <h1>Products list</h1>
             <hr/>
             {loading 
-            ? <Loader/> 
+            ? <Animation/> 
             : <ItemList item={item}/>
             }
         </section>

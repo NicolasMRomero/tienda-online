@@ -2,7 +2,9 @@ nav a {
     color: #fff;
     text-decoration: none;
     font-weight: 600;
-    padding: 0 10px;
+    padding: 10px 10px;
+    margin: auto;
+    width: 50%;
 }
 
 nav a:hover{

@@ -3,6 +3,20 @@ Explicación
 https://github.com/NicolasMRomero/tienda-online/blob/master/tienda-online/Animation.gifgi
 Esta URL de enlace es la URL de enlace que se muestra en github después de cargar la imagen gif.
 
+ENTREGA FINAL PROYECTO DE REACT JS - Por Nicolás M. Romero.
+
+¡Hola! Esta es mi primera experiecia usando React Js, con el curso de Coderhouse.
+Mi idea es profundizar mis conocimientos en el desarrollo web y mantenerme en formación constante.
+Si bien el proyecto cumple con las consignas básicas, mi intención es avanzar con las características extra en el futuro cercano.
+
+Utilicé las siguientes dependencias:
+
+    react-bootstrap, bootswatch y sass para darle estilo al css
+    firebase para conectar a la base de datos
+    react-router-dom para majenar las rutas
+    react-icons para usar la librería de íconos
+    sweetalert2 y react-lottie para las animaciones
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

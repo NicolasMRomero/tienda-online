@@ -4,12 +4,12 @@ import 'firebase/auth'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBFSOYsE6BlZCCopjXIJ3Iq7I3p7G1KwLk",
-  authDomain: "tienda-online-e39a3.firebaseapp.com",
-  projectId: "tienda-online-e39a3",
-  storageBucket: "tienda-online-e39a3.appspot.com",
-  messagingSenderId: "206666091895",
-  appId: "1:206666091895:web:5be4e298e032a6d8ee2572"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID
 };
 
 const app = firebase.initializeApp(firebaseConfig)

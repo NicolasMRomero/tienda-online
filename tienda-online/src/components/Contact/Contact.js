@@ -16,11 +16,15 @@ export const Contact = () => {
             <Card.Body>
                 <Card.Title>Nicolás Romero</Card.Title>
                 <Card.Text>
-                This is my first React Js project.
-                You can check the source code of this site in my Github profile 👉
-                <Link to={{ pathname: "https://github.com/NicolasMRomero/tienda-online/tree/master"}} target="_blank" >
-                    <FaGithubSquare size={22} className="widget"/>
-                </Link>
+                    <p>
+                        This is my first React Js project.
+                    </p>
+                    <p>
+                        You can check the source code on my Github profile 👉
+                        <Link to={{ pathname: "https://github.com/NicolasMRomero/tienda-online/tree/master"}} target="_blank" >
+                            <FaGithubSquare size={22} className="widget"/>
+                        </Link>
+                    </p>
                 
                 </Card.Text>
                 <Button 

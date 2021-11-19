@@ -10,8 +10,11 @@ import {
   Redirect
 } from 'react-router-dom'
 import { CartProvider } from './context/CartContext';
-import { CartPage } from './components/CartPage/CartPage';
 import { UIProvider } from './context/UIContext'
+import { CartPage } from './components/CartPage/CartPage';
+import { Checkout } from './components/Checkout/Checkout';
+import "bootswatch/dist/darkly/bootstrap.min.css";
+
 
 function App() {
 
@@ -24,6 +27,8 @@ function App() {
             <NavBar/>
 
             <Switch>
+
+              <>
               <Route exact path="/">
                 <ItemListContainer/>
               </Route>
@@ -44,9 +49,16 @@ function App() {
                 <CartPage/>
               </Route>
 
+              <Route exact path="/checkout">
+                <Checkout/>
+              </Route>
+
               <Route path="*">
                 <Redirect to="/"/>
               </Route>
+              
+              </>
+
             </Switch>
           
           </BrowserRouter>

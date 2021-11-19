@@ -18,12 +18,12 @@ export const CartPage = () => {
                 // <Redirect to="/"/>
                 <>
                   <h3>
-                     No hay productos cargados
+                     No products added
                   </h3>
                 </>
                 :
                 <>
-                <h1>Resumen del pedido</h1>
+                <h1>Cart detail</h1>
                 <hr/>
                 {
                     cart.map((prod) => (
@@ -32,10 +32,10 @@ export const CartPage = () => {
                                 {prod.name}
                             </h4>
                             <h5>
-                                Cantidad : {prod.quantity}
+                                Quantity : {prod.quantity}
                             </h5>
                             <h6> 
-                                Precio unitario: {prod.price * prod.quantity}
+                                Price: {prod.price * prod.quantity}
                             </h6>
                             <button
                             className="btn btn-danger"
@@ -58,13 +58,13 @@ export const CartPage = () => {
             className="btn btn-danger"
             onClick={emptyCart}
             >
-                Vaciar carrito
+                Delete products
             </button>
             <button 
-                        className="btn btn-outline-secondary mx-4 my-2"
-                        onClick={() => push("/")}
+                        className="btn btn-secondary mx-4 my-2"
+                        onClick={() => push("/checkout")}
                         >
-                        Volver al inicio
+                        Go to checkout
                     </button>
             </>
         </section>

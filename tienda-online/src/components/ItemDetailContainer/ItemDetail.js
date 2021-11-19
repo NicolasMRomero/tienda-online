@@ -52,7 +52,7 @@ export const ItemDetail = ({id, name, description, img, price, category, stock})
                             onClick={handleAdd}
                             className={ActivateAdd}
                             >
-                            AGREGAR
+                            ADD
                         </Button>
                         </div>
                     
@@ -63,7 +63,7 @@ export const ItemDetail = ({id, name, description, img, price, category, stock})
                         : "btn btn-success turned-off"
                         }
                         >
-                        Finalizar mi compra
+                        GO TO CART
                         </Link> 
 
                     
@@ -74,13 +74,13 @@ export const ItemDetail = ({id, name, description, img, price, category, stock})
                         className="btn btn-primary mx-4 my-2"
                         onClick={() =>  goBack()}
                     >
-                        Volver
+                        GO BACK
                     </button>
                     <button 
                         className="btn btn-secondary mx-4 my-2"
                         onClick={() => push("/")}
                     >
-                        Volver al inicio
+                        BACK TO HOME
                     </button>
 
                     

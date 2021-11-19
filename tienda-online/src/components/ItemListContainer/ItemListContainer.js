@@ -36,7 +36,7 @@ export const ItemListContainer = () => {
 
     return (
         <section className="container my-5">
-            <h1>Listado de productos</h1>
+            <h1>Products list</h1>
             <hr/>
             {loading 
             ? <Loader/> 

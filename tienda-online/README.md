@@ -1,21 +1,21 @@
 ![image](https://github.com/NicolasMRomero/tienda-online/blob/master/tienda-online/Animation.gif)
-Explicación
+Explanation
 https://github.com/NicolasMRomero/tienda-online/blob/master/tienda-online/Animation.gifgi
-Esta URL de enlace es la URL de enlace que se muestra en github después de cargar la imagen gif.
+This link url is the link url that is displayed on github after the gif image is uploaded.
 
-ENTREGA FINAL PROYECTO DE REACT JS - Por Nicolás M. Romero.
+FINAL PROJECT DELIVERY DE REACT JS - Por Nicolás M. Romero.
 
-¡Hola! Esta es mi primera experiecia usando React Js, con el curso de Coderhouse.
-Mi idea es profundizar mis conocimientos en el desarrollo web y mantenerme en formación constante.
-Si bien el proyecto cumple con las consignas básicas, mi intención es avanzar con las características extra en el futuro cercano.
+Hello! This is my first experience using React Js, with the Coderhouse course.
+My idea is to deepen my knowledge in web development and keep myself in constant training.
+Although the project meets the basic slogans, my intention is to move forward with the extra features in the near future.
 
-Utilicé las siguientes dependencias:
+I used the following dependencies:
 
-    react-bootstrap, bootswatch y sass para darle estilo al css
-    firebase para conectar a la base de datos
-    react-router-dom para majenar las rutas
-    react-icons para usar la librería de íconos
-    sweetalert2 y react-lottie para las animaciones
+    react-bootstrap, bootswatch y sass to style the css
+    firebase to connect to the database
+    react-router-dom to manage the routes
+    react-icons to use the icon library
+    sweetalert2 y react-lottie for the animations
 
 # Getting Started with Create React App
 
